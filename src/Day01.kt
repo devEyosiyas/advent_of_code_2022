@@ -1,17 +1,26 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun solve(input: List<String>, selectCount: Int): Int {
+        var tmp = 0
+        var pos = 0
+        val set = mutableMapOf<Int, Int>()
+        input.forEach {
+            if (it == "") {
+                pos += 1
+                tmp = 0
+            } else {
+                tmp += it.toInt()
+                set[pos + 1] = tmp
+            }
+        }
+        val sorted = set.toList().sortedBy { it.second }.reversed()
+        var sum = 0
+        for (i in 0 until selectCount) sum += sorted[i].second
+        return sum
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
-
-    // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
     val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+
+    solve(testInput, 3).println()
+    solve(input, 3).println()
 }
