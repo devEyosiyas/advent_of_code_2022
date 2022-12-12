@@ -1,4 +1,4 @@
-package Day02
+package day02
 
 import println
 import readInput
@@ -24,7 +24,7 @@ fun main() {
         else -> 'B'
     }
 
-    fun swapMove(moveA : Int, c: Char): Int = when (c) {
+    fun swapMove(moveA: Int, c: Char): Int = when (c) {
         'Y' -> moveA
         'X' -> when (moveA) {
             ROCK -> SCISSORS
@@ -49,19 +49,24 @@ fun main() {
         }
     }
 
-    fun solve(input: List<String>, swap:Boolean): Int {
+    fun solve(input: List<String>, swap: Boolean = false): Int {
         var score = 0
         input.forEach {
             it.split(" ").let { (a, b) ->
-                score += awardPoint(a.toCharArray().first(), b.toCharArray().first(), swap)
+                score += awardPoint(a[0], b[0], swap)
             }
         }
         return score
     }
 
-    val testInput = readInput("Day02", true)
-    val input = readInput("Day02")
+    val testInput = readInput("day02", true)
+    val input = readInput("day02")
 
+    // part one
+    solve(testInput).println()
+    solve(input).println()
+
+    // part two
     solve(testInput, true).println()
     solve(input, true).println()
 }
