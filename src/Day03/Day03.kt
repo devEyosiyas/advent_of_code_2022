@@ -1,3 +1,8 @@
+package Day03
+
+import println
+import readInput
+
 fun main() {
     fun priority(c: Char): Int = when (val n = c.code) {
         in 65..90 -> n - 65 + 27
@@ -35,7 +40,7 @@ fun main() {
         return sum
     }
 
-    val testInput = readInput("Day03_test")
+    val testInput = readInput("Day03", true)
     val input = readInput("Day03")
 
     rucksacks(testInput).println()

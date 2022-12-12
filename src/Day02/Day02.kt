@@ -1,3 +1,8 @@
+package Day02
+
+import println
+import readInput
+
 const val ROCK = 1
 const val PAPER = 2
 const val SCISSORS = 3
@@ -54,7 +59,7 @@ fun main() {
         return score
     }
 
-    val testInput = readInput("Day02_test")
+    val testInput = readInput("Day02", true)
     val input = readInput("Day02")
 
     solve(testInput, true).println()

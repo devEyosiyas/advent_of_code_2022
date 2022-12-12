@@ -1,3 +1,8 @@
+package Day01
+
+import println
+import readInput
+
 fun main() {
     fun solve(input: List<String>, selectCount: Int): Int {
         var tmp = 0
@@ -18,7 +23,7 @@ fun main() {
         return sum
     }
 
-    val testInput = readInput("Day01_test")
+    val testInput = readInput("Day01", true)
     val input = readInput("Day01")
 
     solve(testInput, 3).println()
