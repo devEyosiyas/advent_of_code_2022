@@ -1,4 +1,4 @@
-package Day03
+package day03
 
 import println
 import readInput
@@ -33,19 +33,20 @@ fun main() {
 
     fun threeRucksacks(rucksacks: List<String>): Int {
         var sum = 0
-        for (i in rucksacks.indices step 3) {
-            val input = "${rucksacks[i]}\n${rucksacks[i + 1]}\n${rucksacks[i + 2]}"
-            sum += processRucksack(input, true)
+        rucksacks.chunked(3).forEach { rucksack ->
+            sum += processRucksack(rucksack.joinToString("\n"), true)
         }
         return sum
     }
 
-    val testInput = readInput("Day03", true)
-    val input = readInput("Day03")
+    val testInput = readInput("day03", true)
+    val input = readInput("day03")
 
+    // part one
     rucksacks(testInput).println()
     rucksacks(input).println()
 
+    // part two
     threeRucksacks(testInput).println()
     threeRucksacks(input).println()
 }
