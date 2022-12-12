@@ -1,4 +1,4 @@
-package Day01
+package day01
 
 import println
 import readInput
@@ -17,15 +17,17 @@ fun main() {
                 set[pos + 1] = tmp
             }
         }
-        val sorted = set.toList().sortedBy { it.second }.reversed()
-        var sum = 0
-        for (i in 0 until selectCount) sum += sorted[i].second
-        return sum
+        return set.toList().sortedBy { it.second }.reversed().take(selectCount).sumOf { it.second }
     }
 
-    val testInput = readInput("Day01", true)
-    val input = readInput("Day01")
+    val testInput = readInput("day01", true)
+    val input = readInput("day01")
 
+    // part one
+    solve(testInput, 1).println()
+    solve(input, 1).println()
+
+    // part two
     solve(testInput, 3).println()
     solve(input, 3).println()
 }
